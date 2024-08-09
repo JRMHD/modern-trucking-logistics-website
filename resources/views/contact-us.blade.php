@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+
+    <script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description"
@@ -52,29 +54,71 @@
             <h2 class="form-title">Feel free to message</h2>
             <div class="row">
                 <div class="col-lg-8">
-                    <form action="https://html.urnoit.net/ochim/contact-handler.php" method="post">
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+                    @if (session('error'))
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    <form action="{{ route('contact.submit') }}" method="post">
+                        @csrf
                         <div class="row">
                             <div class="col-md-6 col-lg-6">
-                                <input type="text" name="username" placeholder="Your name" />
+                                <input type="text" name="username" placeholder="Your name"
+                                    value="{{ old('username') }}" required />
+                                @error('username')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-md-6 col-lg-6">
-                                <input type="text" name="usermail" placeholder="Your Email" />
+                                <input type="email" name="usermail" placeholder="Your Email"
+                                    value="{{ old('usermail') }}" required />
+                                @error('usermail')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-md-6 col-lg-6">
-                                <input type="text" name="userphone" placeholder="Phone" />
+                                <input type="text" name="userphone" placeholder="Phone"
+                                    value="{{ old('userphone') }}" required />
+                                @error('userphone')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-md-6 col-lg-6">
-                                <input type="text" name="usersubject" placeholder="Sort by popular" />
+                                <input type="text" name="usersubject" placeholder="Subject"
+                                    value="{{ old('usersubject') }}" required />
+                                @error('usersubject')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-lg-12">
-                                <textarea name="usermessage" id="usermessage" rows="6">
-Message</textarea>
+                                <textarea name="usermessage" rows="6" placeholder="Message" required>{{ old('usermessage') }}</textarea>
+                                @error('usermessage')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
+                            <!-- Add reCAPTCHA widget -->
+                            {!! NoCaptcha::display() !!}
                             <div class="col-lg-12">
-                                <button type="submit">Send A Messege</button>
+                                <button type="submit">Send A Message</button>
                             </div>
                         </div>
                     </form>
+
+
                 </div>
                 <div class="col-lg-4">
                     <div class="info-box">
@@ -113,6 +157,10 @@ Message</textarea>
         </div>
     </section>
 
+
+    {{-- @push('scripts')
+        {!! NoCaptcha::renderJs() !!}
+    @endpush --}}
     <!-- Map Area -->
 
     <section class="map-area">
@@ -132,7 +180,8 @@ Message</textarea>
         <button class="search-close"><i class="fa-solid fa-xmark"></i></button>
         <form method="post" action="#">
             <div class="form-group">
-                <input type="search" name="search-field" value="" placeholder="Search Here" required="" />
+                <input type="search" name="search-field" value="" placeholder="Search Here"
+                    required="" />
                 <button type="submit">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>

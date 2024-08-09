@@ -50,7 +50,8 @@
                          </li>
                          <li><a href="about-us">About Us</a></li>
                          <li><a href="services">Services</a></li>
-
+                         <li><a href="Application">Driver Application</a></li>
+                         <li><a href="dashboard">Shippers</a></li>
                          <li><a href="contact-us">Contact</a></li>
                      </ul>
                  </nav>
@@ -75,7 +76,11 @@
  <div class="mobile-menu">
      <div class="menu-bar">
          <div class="site-logo">
-             <a href="/"><img src="assets/images/logo.png" alt="logo" /></a>
+             <a href="/"
+                 style="text-decoration: none; color: #000; font-family: Arial, sans-serif; font-size: 36px; font-weight: bold; text-transform: uppercase;">
+                 TRUCK4YOU
+             </a>
+
          </div>
          <div class="toggle-button">
              <span></span>
@@ -88,6 +93,8 @@
              <li><a href="/">Home</a></li>
              <li><a href="about-us">About Us</a></li>
              <li><a href="services">Services</a></li>
+             <li><a href="Application">Driver Application</a></li>
+             <li><a href="dashboard">Shippers</a></li>
 
              <li><a href="contact-us">Contact</a></li>
          </ul>
@@ -110,7 +117,7 @@
                  </div>
              </div>
              <div class="menu-button">
-                 <a class="button" href="contact-us.html">Get A Quote<i class="fa-solid fa-arrow-right"></i></a>
+                 <a class="button" href="contact-us">Get A Quote<i class="fa-solid fa-arrow-right"></i></a>
              </div>
          </div>
      </div>

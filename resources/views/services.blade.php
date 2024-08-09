@@ -142,82 +142,13 @@
 
     <!-- Contact Form -->
 
-    <section class="service-page-contact">
-        <div class="container">
-            <div class="contact-form">
-                <div class="row">
-                    <div class="col-lg-8">
-                        <div class="form-area">
-                            <form action="#">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <label for="email">Your Email</label>
-                                        <div class="email-field">
-                                            <input type="text" id="email" placeholder="Your Email" />
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <label for="phone">Your Phone</label>
-                                        <div class="phone-field">
-                                            <input type="text" id="phone" placeholder="Your Phone" />
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <label for="address">Your Address</label>
-                                        <div class="address-field">
-                                            <input type="text" id="address" placeholder="Your Address" />
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <label for="message">Message</label>
-                                        <div class="message-field">
-                                            <textarea name="message" id="message" cols="30" rows="10">
-Write Message..</textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <button type="submit">Send Message</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="counter-area">
-                            <div class="counter-box">
-                                <div class="icon">
-                                    <i class="ui ui-phone"></i>
-                                </div>
-                                <div class="content" id="counter">
-                                    <span class="count" data-count="200">0</span><span class="suffix">+</span>
-                                    <p>Team member</p>
-                                </div>
-                            </div>
-                            <div class="counter-box">
-                                <div class="icon">
-                                    <i class="ui ui-airplane"></i>
-                                </div>
-                                <div class="content" id="counter">
-                                    <span class="count" data-count="60">0</span><span class="suffix">+</span>
-                                    <p>Winning award</p>
-                                </div>
-                            </div>
-                            <div class="counter-box">
-                                <div class="icon">
-                                    <i class="ui ui-mountain"></i>
-                                </div>
-                                <div class="content" id="counter">
-                                    <span class="count" data-count="300">0</span><span class="suffix">+</span>
-                                    <p>Client Review</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    @include('quote')
 
+    <!-- Blog Post -->
+
+    <section class="blog-post2">
+
+    </section>
     @include('footer')
 
     <!-- Search Window -->

@@ -2,6 +2,11 @@
 <html lang="en">
 
 <head>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description"
@@ -40,13 +45,75 @@
                         <div class="hero-text">
                             <h4 class="subtitle">Quick Transport and Logistics Solutions</h4>
                             <h2 class="title">
-                                <span>Streamlining Limit</span> Shipping Logistics
+                                <span class="typing-effect">Streamlining Limit</span>
+                                <span class="fade-in-effect"><strong>Shipping Logistics</strong></span>
                             </h2>
                         </div>
+                        <style>
+                            .title {
+                                font-size: 2.5rem;
+                                line-height: 1.2;
+                                margin-bottom: 20px;
+                            }
+
+                            .typing-effect {
+                                display: inline-block;
+                                overflow: hidden;
+                                border-right: 2px solid #0056b3;
+                                white-space: nowrap;
+                                margin: 0 auto;
+                                letter-spacing: 0.15em;
+                                animation:
+                                    typing 3.5s steps(40, end),
+                                    blink-caret 0.75s step-end infinite;
+                            }
+
+                            @keyframes typing {
+                                from {
+                                    width: 0
+                                }
+
+                                to {
+                                    width: 100%
+                                }
+                            }
+
+                            @keyframes blink-caret {
+
+                                from,
+                                to {
+                                    border-color: transparent
+                                }
+
+                                50% {
+                                    border-color: #0056b3;
+                                }
+                            }
+
+                            .fade-in-effect {
+                                display: inline-block;
+                                opacity: 0;
+                                animation: fadeIn 2s ease-in forwards;
+                                animation-delay: 3.5s;
+                            }
+
+                            @keyframes fadeIn {
+                                from {
+                                    opacity: 0;
+                                }
+
+                                to {
+                                    opacity: 1;
+                                }
+                            }
+                        </style>
                         <div class="hero-tabs">
                             <ul class="tab-navigation">
                                 <li class="nav-item active" rel="tab1">Route Clock</li>
-                                <li class="nav-item" rel="tab2">Get Quote</li>
+                                {{-- <li class="nav-item" data-target="#quote">Get Quote</li> --}}
+                                <li class="nav-item"><a href="Application" class="nav-link">Career Application</a></li>
+                                <li class="nav-item"><a href="dashboard" class="nav-link">Shppers</a></li>
+
                                 <li class="nav-item" rel="tab3">Branches</li>
                             </ul>
                             <div class="tab-content">
@@ -241,6 +308,9 @@
             </div>
         </div>
     </section>
+
+    @include('quote')
+
 
     <!-- About Section -->
     <section class="about2">
@@ -489,79 +559,13 @@
 
     <!-- Contact Form -->
 
-    <section class="home-contact2">
-        <div class="container">
-            <div class="section-title center">
-                <h4 class="subtitle">Talk with us</h4>
-                <h2 class="title">Fueling Growth, Driving Logistics Innovation</h2>
-            </div>
-            <div class="row">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-8">
-                    <div class="form-area">
-                        <form method="post">
-                            <div class="row">
-                                <div class="col-md-6 col-lg-6">
-                                    <label for="fname">Your first name</label>
-                                    <div class="name-field">
-                                        <input type="text" id="fname" name="fname"
-                                            placeholder="Your first name" />
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-6">
-                                    <label for="email">Your last name</label>
-                                    <div class="email-field">
-                                        <input type="text" id="email" name="lname"
-                                            placeholder="Your last name" />
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-6">
-                                    <label for="email">Your E-mail</label>
-                                    <div class="email-field">
-                                        <input type="text" id="email" name="usermail"
-                                            placeholder="Your Email" />
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-6">
-                                    <label for="phone">Your Phone</label>
-                                    <div class="phone-field">
-                                        <input type="text" id="phone" name="userphone"
-                                            placeholder="Your Phone" />
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <label for="message">Message</label>
-                                    <div class="message-field">
-                                        <textarea name="message" id="message" cols="30" rows="10">
-Write Message..</textarea>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="radio-field">
-                                        <input type="radio" id="terms" />
-                                        <label for="terms">I have read and accept the</label>
-                                        <a href="contact-us">Terms and Conditions</a>
-                                        <a href="contact-us">Privacy Policy</a>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <button type="submit">Send Message</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-lg-2"></div>
-            </div>
-        </div>
-    </section>
 
 
-    <!-- Blog Post -->
+    {{-- <!-- Blog Post -->
 
     <section class="blog-post2">
 
-    </section>
+    </section> --}}
 
     @include('footer')
     <!-- Search Window -->
