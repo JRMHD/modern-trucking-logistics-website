@@ -6,6 +6,7 @@ use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\DriverApplicationController;
+use App\Http\Controllers\CertificateRequestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,9 @@ Route::get('services', function () {
 Route::get('application', function () {
     return view('application');
 });
+Route::get('Application', function () {
+    return view('Application');
+});
 
 Route::get('contact-us', function () {
     return view('contact-us');
@@ -41,6 +45,9 @@ Route::get('contact-us', function () {
 
 Route::get('about-us', function () {
     return view('about-us');
+});
+Route::get('certrequest', function () {
+    return view('certrequest');
 });
 
 // Auth Routes
@@ -63,3 +70,8 @@ Route::post('/subscribe', [SubscriberController::class, 'subscribe'])->name('sub
 Route::post('/contact-submit', [ContactController::class, 'submit'])->name('contact.submit');
 Route::post('/submit-quote', [QuoteController::class, 'submitQuote'])->name('submit.quote');
 Route::post('/submit-application', [DriverApplicationController::class, 'store'])->name('submit.application');
+
+
+Route::get('/certificate-request', [CertificateRequestController::class, 'index'])->name('certificate-request.index');
+Route::post('/certificate-request', [CertificateRequestController::class, 'store'])->name('certificate-request.store');
+Route::get('/certificate-request/thankyou', [CertificateRequestController::class, 'thankyou'])->name('certificate-request.thankyou');

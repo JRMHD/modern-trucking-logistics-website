@@ -50,7 +50,8 @@
                          </li>
                          <li><a href="about-us">About Us</a></li>
                          <li><a href="services">Services</a></li>
-                         <li><a href="Application">Driver Application</a></li>
+                         <li><a href="application">Driver Application</a></li>
+                         <li><a href="certrequest">Insurance Certificate</a></li>
                          <li><a href="dashboard">Shippers</a></li>
                          <li><a href="contact-us">Contact</a></li>
                      </ul>
@@ -93,7 +94,8 @@
              <li><a href="/">Home</a></li>
              <li><a href="about-us">About Us</a></li>
              <li><a href="services">Services</a></li>
-             <li><a href="Application">Driver Application</a></li>
+             <li><a href="application">Driver Application</a></li>
+             <li><a href="certrequest">Insurance Certificate</a></li>
              <li><a href="dashboard">Shippers</a></li>
 
              <li><a href="contact-us">Contact</a></li>

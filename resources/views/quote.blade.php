@@ -91,7 +91,11 @@
                                          <option value="53 foot Dry Van">53 foot Dry Van</option>
                                          <option value="Power Only">Power Only</option>
                                          <option value="Flatbed">Flatbed</option>
-                                         <option value="Custom">Custom</option>
+                                         <option value="Van">Van</option>
+                                         <option value="Refer">Refer</option>
+                                         <option value="Hotshot">Hotshot</option>
+                                         {{-- <option value="Custom">Custom</option> --}}
+
                                      </select>
                                  </div>
                              </div>

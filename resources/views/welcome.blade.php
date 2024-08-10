@@ -111,7 +111,10 @@
                             <ul class="tab-navigation">
                                 <li class="nav-item active" rel="tab1">Route Clock</li>
                                 {{-- <li class="nav-item" data-target="#quote">Get Quote</li> --}}
-                                <li class="nav-item"><a href="Application" class="nav-link">Career Application</a></li>
+                                <li class="nav-item"><a href="application" class="nav-link">Driver Application</a></li>
+                                <li class="nav-item"><a href="certrequest" class="nav-link">Insurance Certificate</a>
+                                </li>
+
                                 <li class="nav-item"><a href="dashboard" class="nav-link">Shppers</a></li>
 
                                 <li class="nav-item" rel="tab3">Branches</li>
@@ -309,7 +312,7 @@
         </div>
     </section>
 
-    @include('quote')
+    {{-- @include('quote') --}}
 
 
     <!-- About Section -->

@@ -51,9 +51,9 @@
 
     <section class="contact-page-form">
         <div class="container">
-            <h2 class="form-title">Feel free to message</h2>
+            {{-- <h2 class="form-title">Feel free to message</h2> --}}
             <div class="row">
-                <div class="col-lg-8">
+                {{-- <div class="col-lg-8">
                     @if (session('success'))
                         <div class="alert alert-success">
                             {{ session('success') }}
@@ -119,7 +119,9 @@
                     </form>
 
 
-                </div>
+                </div> --}}
+                @include('quote')
+
                 <div class="col-lg-4">
                     <div class="info-box">
                         <div class="icon-box">
@@ -180,8 +182,7 @@
         <button class="search-close"><i class="fa-solid fa-xmark"></i></button>
         <form method="post" action="#">
             <div class="form-group">
-                <input type="search" name="search-field" value="" placeholder="Search Here"
-                    required="" />
+                <input type="search" name="search-field" value="" placeholder="Search Here" required="" />
                 <button type="submit">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
