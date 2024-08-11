@@ -11,12 +11,16 @@ class CertificateRequest extends Model
 
     protected $fillable = [
         'company_name',
+        'company_address', 
+        'reason', 
+        'delivery_method', 
         'dot_number',
         'email',
         'certificate_type',
         'latitude',
         'longitude',
         'location_name',
-        'insurance_certificate', 
+        'insurance_certificate',
+        'limit_requested',
     ];
 }

@@ -23,7 +23,7 @@
             border-radius: 10px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             width: 100%;
-            max-width: 400px;
+            max-width: 500px;
             text-align: center;
         }
 
@@ -58,14 +58,56 @@
             color: #777;
             font-size: 14px;
         }
+
+        .alert {
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .alert-success {
+            background-color: #28a745;
+        }
+
+        .alert-error {
+            background-color: #dc3545;
+        }
+
+        .alert-warning {
+            background-color: #ffc107;
+            color: #333;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <h2>Thank You for Your Request</h2>
-        <p>We have received your Certificate of Insurance request. Our team at Truck4You will process it and get back to
-            you shortly.</p>
+
+        <!-- Display success message -->
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+            <p>We have received your Certificate of Insurance request. Our team at Truck4You will process it and get
+                back to you shortly.</p>
+        @endif
+
+        <!-- Display warning message -->
+        @if (session('warning'))
+            <div class="alert alert-warning">
+                {{ session('warning') }}
+            </div>
+        @endif
+
+        <!-- Display error message -->
+        @if (session('error'))
+            <div class="alert alert-error">
+                {{ session('error') }}
+            </div>
+        @endif
+
         <a href="{{ url('certrequest') }}" class="btn">Back to Home</a>
         <div class="footer">
             &copy; <span id="year"></span> Truck4You. All rights reserved.

@@ -71,94 +71,166 @@
             </div>
         @endif
 
-        <form id="certificate-request-form" action="{{ route('certificate-request.store') }}" method="POST"
-            enctype="multipart/form-data"
-            style="background-color: white; padding: 30px; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.05);">
-            @csrf
-            <input type="hidden" id="latitude" name="latitude">
-            <input type="hidden" id="longitude" name="longitude">
-            <div class="form-group" style="margin-bottom: 20px;">
-                <label for="companyName" style="display: block; margin-bottom: 5px; color: #333;">Company Name:</label>
-                <input type="text" id="companyName" name="companyName" placeholder="Enter your company name" required
-                    style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;"
-                    value="{{ old('companyName') }}" />
-            </div>
-            <div class="form-group" style="margin-bottom: 20px;">
-                <label for="dotNumber" style="display: block; margin-bottom: 5px; color: #333;">
-                    DOT Number:
-                </label>
-                <input type="text" id="dotNumber" name="dotNumber" placeholder="Enter your DOT number" required
-                    style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;"
-                    value="{{ old('dotNumber') }}" />
-            </div>
+        <div
+            style="font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; background-color: #f4f4f4; margin: 0; padding: 0;">
+            <div
+                style="max-width: 800px; margin: 20px auto; background-color: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <h1 style="color: #cc0000; margin-top: 0; border-bottom: 2px solid #cc0000; padding-bottom: 10px;">
+                    Certificate Request Form</h1>
+                <form id="certificate-request-form" action="{{ route('certificate-request.store') }}" method="POST"
+                    enctype="multipart/form-data"
+                    style="background-color: white; padding: 30px; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.05);">
+                    @csrf
+                    <input type="hidden" id="latitude" name="latitude">
+                    <input type="hidden" id="longitude" name="longitude">
 
-            <div class="form-group" style="margin-bottom: 20px;">
-                <label for="insuranceCertificate" style="display: block; margin-bottom: 5px; color: #333;">
-                    Upload Certificate of Insurance:
-                </label>
-                <input type="file" id="insuranceCertificate" name="insuranceCertificate" required
-                    style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;"
-                    accept=".pdf, .jpg, .jpeg, .png, .doc, .docx" />
-                <small style="display: block; margin-top: 5px; color: #666;">
-                    Please upload a valid Certificate of Insurance. Accepted formats include PDF, JPG, PNG, DOC, and
-                    DOCX.
-                </small>
-            </div>
+                    <!-- Company Name -->
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="companyName" style="display: block; margin-bottom: 5px; color: #333;">Company
+                            Name:</label>
+                        <input type="text" id="companyName" name="companyName" placeholder="Enter your company name"
+                            required
+                            style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;"
+                            value="{{ old('companyName') }}" />
+                        <small style="display: block; margin-top: 5px; color: #666;">
+                            Enter the official name of your company as registered with the relevant authorities.
+                        </small>
+                    </div>
 
-            <div class="form-group" style="margin-bottom: 20px; color: #333;">
-                <p>
-                    <strong>Why is this required?</strong> Providing a valid Certificate of Insurance is crucial for
-                    processing your request.
-                    This certificate ensures that your company meets all the necessary insurance requirements and is in
-                    compliance with regulations.
-                </p>
-                <p>
-                    <strong>What should the certificate include?</strong> The uploaded certificate must be current and
-                    should clearly display your
-                    company's name, the type of coverage, policy number, and the coverage period. Please ensure all
-                    details are legible.
-                </p>
-                <p>
-                    <strong>Need help?</strong> If you encounter any issues while uploading your certificate, please
-                    contact our support team at
-                    <a href="mailto:letsroll@truk4you.com" style="color: #007bff;">letsroll@truk4you.com</a> or call
-                    us at (303) 944-7371.
-                </p>
-            </div>
+                    <!-- Company Address -->
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="companyAddress" style="display: block; margin-bottom: 5px; color: #333;">Company
+                            Address:</label>
+                        <textarea id="companyAddress" name="companyAddress"
+                            placeholder="Enter the company address to be listed as certificate holder" required
+                            style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; height: 100px;">{{ old('companyAddress') }}</textarea>
+                        <small style="display: block; margin-top: 5px; color: #666;">
+                            Provide the address where the certificate should be listed.
+                        </small>
+                    </div>
+
+                    <!-- Reason for Request -->
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="reason" style="display: block; margin-bottom: 5px; color: #333;">Reason for
+                            Request:</label>
+                        <textarea id="reason" name="reason" placeholder="Enter the reason for requesting the certificate" required
+                            style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; height: 100px;">{{ old('reason') }}</textarea>
+                        <small style="display: block; margin-top: 5px; color: #666;">
+                            Explain why you need the certificate and any additional context.
+                        </small>
+                    </div>
+
+                    <!-- Delivery Method -->
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="deliveryMethod" style="display: block; margin-bottom: 5px; color: #333;">Delivery
+                            Method:</label>
+                        <select id="deliveryMethod" name="deliveryMethod" required
+                            style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; background-color: white; box-sizing: border-box;">
+                            <option value="">Select how you would like to receive the certificate</option>
+                            <option value="email" {{ old('deliveryMethod') == 'email' ? 'selected' : '' }}>Email
+                            </option>
+                            <option value="mail" {{ old('deliveryMethod') == 'mail' ? 'selected' : '' }}>Postal Mail
+                            </option>
+                            <option value="pickup" {{ old('deliveryMethod') == 'pickup' ? 'selected' : '' }}>In-Person
+                                Pickup</option>
+                        </select>
+                        <small style="display: block; margin-top: 5px; color: #666;">
+                            Choose the preferred method for receiving the certificate.
+                        </small>
+                    </div>
+                    <!-- DOT Number -->
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="dotNumber" style="display: block; margin-bottom: 5px; color: #333;">DOT
+                            Number:</label>
+                        <input type="text" id="dotNumber" name="dotNumber" placeholder="Enter your DOT number"
+                            style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;"
+                            value="{{ old('dotNumber') }}" />
+                        <small style="display: block; margin-top: 5px; color: #666;">
+                            Enter the DOT number for your company.
+                        </small>
+                    </div>
 
 
+                    <!-- Certificate Type -->
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="certificateType"
+                            style="display: block; margin-bottom: 5px; color: #333;">Certificate Type:</label>
+                        <select id="certificateType" name="certificateType" required
+                            style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; background-color: white; box-sizing: border-box;">
+                            <option value="">Select certificate type</option>
+                            <option value="auto" {{ old('certificateType') == 'auto' ? 'selected' : '' }}>Auto
+                                Liability</option>
+                            <option value="cargo" {{ old('certificateType') == 'cargo' ? 'selected' : '' }}>Cargo
+                                Insurance</option>
+                            <option value="general" {{ old('certificateType') == 'general' ? 'selected' : '' }}>
+                                General Liability</option>
+                            <option value="workers" {{ old('certificateType') == 'workers' ? 'selected' : '' }}>
+                                Workers' Compensation</option>
+                        </select>
+                        <small style="display: block; margin-top: 5px; color: #666;">
+                            Choose the type of insurance certificate you are requesting. This helps us process your
+                            request more accurately.
+                        </small>
+                    </div>
 
-            <div class="form-group" style="margin-bottom: 20px;">
-                <label for="email" style="display: block; margin-bottom: 5px; color: #333;">Email Address:</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email address" required
-                    style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;"
-                    value="{{ old('email') }}" />
+                    <!-- Limit Requested -->
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="limitRequested" style="display: block; margin-bottom: 5px; color: #333;">Limit
+                            Requested:</label>
+                        <input type="number" id="limitRequested" name="limitRequested"
+                            placeholder="Enter the limit requested" required
+                            style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;"
+                            value="{{ old('limitRequested') }}" />
+                        <small style="display: block; margin-top: 5px; color: #666;">
+                            Specify the amount of coverage or limit you are requesting. This should reflect the amount
+                            of insurance coverage you need.
+                        </small>
+                    </div>
+
+                    <!-- Insurance Certificate -->
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="insuranceCertificate"
+                            style="display: block; margin-bottom: 5px; color: #333;">Insurance Certificate:</label>
+                        <input type="file" id="insuranceCertificate" name="insuranceCertificate" required
+                            style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;" />
+                        <small style="display: block; margin-top: 5px; color: #666;">
+                            Upload the insurance certificate document. Ensure the file is in an acceptable format (e.g.,
+                            PDF, JPEG).
+                        </small>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="email" style="display: block; margin-bottom: 5px; color: #333;">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email address"
+                            required
+                            style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;"
+                            value="{{ old('email') }}" />
+                        <small style="display: block; margin-top: 5px; color: #666;">
+                            Enter your email address for communication purposes.
+                        </small>
+                    </div>
+
+                    <!-- CAPTCHA -->
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        {!! NoCaptcha::display() !!}
+                        <small style="display: block; margin-top: 5px; color: #666;">
+                            Please complete the CAPTCHA to verify you are not a robot.
+                        </small>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <button type="submit"
+                            style="width: 100%; padding: 12px; background-color: #cc0000; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; transition: background-color 0.3s;">
+                            Request Certificate
+                        </button>
+                    </div>
+                </form>
             </div>
-            <div class="form-group" style="margin-bottom: 20px;">
-                <label for="certificateType" style="display: block; margin-bottom: 5px; color: #333;">Certificate
-                    Type:</label>
-                <select id="certificateType" name="certificateType" required
-                    style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; background-color: white; box-sizing: border-box;">
-                    <option value="">Select certificate type</option>
-                    <option value="auto" {{ old('certificateType') == 'auto' ? 'selected' : '' }}>Auto Liability
-                    </option>
-                    <option value="cargo" {{ old('certificateType') == 'cargo' ? 'selected' : '' }}>Cargo Insurance
-                    </option>
-                    <option value="general" {{ old('certificateType') == 'general' ? 'selected' : '' }}>General
-                        Liability</option>
-                    <option value="workers" {{ old('certificateType') == 'workers' ? 'selected' : '' }}>Workers'
-                        Compensation</option>
-                </select>
-            </div>
-            <div class="form-group" style="margin-bottom: 20px;">
-                {!! NoCaptcha::display() !!}
-            </div>
-            <div class="form-group" style="margin-bottom: 20px;">
-                <button type="submit"
-                    style="width: 100%; padding: 12px; background-color: #ff0000; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; transition: background-color 0.3s;">Request
-                    Certificate</button>
-            </div>
-        </form>
+        </div>
+
+
         <div id="location-status" class="location-status" style="margin-top: 20px; text-align: center; color: #333;">
         </div>
     </div>

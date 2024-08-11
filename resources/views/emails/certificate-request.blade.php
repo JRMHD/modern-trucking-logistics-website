@@ -77,27 +77,25 @@
                 <td>{{ $certificateRequest->company_name }}</td>
             </tr>
             <tr>
-                <th>DOT Number</th>
-                <td>{{ $certificateRequest->dot_number }}</td>
+                <th>Company Address</th>
+                <td>{{ $certificateRequest->company_address }}</td>
             </tr>
             <tr>
-                <th>Email Address</th>
-                <td>{{ $certificateRequest->email }}</td>
+                <th>Reason for Request</th>
+                <td>{{ $certificateRequest->reason }}</td>
+            </tr>
+            <tr>
+                <th>Delivery Method</th>
+                <td>{{ $certificateRequest->delivery_method }}</td>
             </tr>
             <tr>
                 <th>Certificate Type</th>
                 <td>{{ $certificateRequest->certificate_type }}</td>
             </tr>
-            {{-- <tr>
-                <th>Uploaded Document</th>
-                <td>
-                    @if ($certificateRequest->file_path)
-                        <a href="{{ Storage::url($certificateRequest->file_path) }}" target="_blank">Download Document</a>
-                    @else
-                        No document uploaded
-                    @endif
-                </td>
-            </tr> --}}
+            <tr>
+                <th>Limit Requested</th>
+                <td>${{ number_format($certificateRequest->limit_requested, 2) }}</td>
+            </tr>
             <tr>
                 <th>Insurance Certificate</th>
                 <td>
@@ -109,8 +107,6 @@
                     @endif
                 </td>
             </tr>
-
-
             <tr>
                 <th>Location</th>
                 <td>
