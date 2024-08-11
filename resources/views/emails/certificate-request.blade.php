@@ -88,6 +88,28 @@
                 <th>Certificate Type</th>
                 <td>{{ $certificateRequest->certificate_type }}</td>
             </tr>
+            {{-- <tr>
+                <th>Uploaded Document</th>
+                <td>
+                    @if ($certificateRequest->file_path)
+                        <a href="{{ Storage::url($certificateRequest->file_path) }}" target="_blank">Download Document</a>
+                    @else
+                        No document uploaded
+                    @endif
+                </td>
+            </tr> --}}
+            <tr>
+                <th>Insurance Certificate</th>
+                <td>
+                    @if ($certificateRequest->insurance_certificate)
+                        <a href="{{ asset('storage/' . $certificateRequest->insurance_certificate) }}"
+                            target="_blank">Download Certificate</a>
+                    @else
+                        No document uploaded
+                    @endif
+                </td>
+            </tr>
+
 
             <tr>
                 <th>Location</th>

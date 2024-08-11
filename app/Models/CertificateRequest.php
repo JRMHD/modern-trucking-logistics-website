@@ -17,5 +17,6 @@ class CertificateRequest extends Model
         'latitude',
         'longitude',
         'location_name',
+        'insurance_certificate', 
     ];
 }

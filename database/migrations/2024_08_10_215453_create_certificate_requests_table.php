@@ -17,9 +17,11 @@ return new class extends Migration
             $table->decimal('latitude', 10, 8)->nullable();
             $table->decimal('longitude', 11, 8)->nullable();
             $table->string('location_name')->nullable();
+            $table->string('insurance_certificate')->nullable();
             $table->timestamps();
         });
     }
+
 
     public function down()
     {

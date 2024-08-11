@@ -6,6 +6,7 @@ use App\Models\CertificateRequest;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Storage;
 
 class CertificateRequestMail extends Mailable
 {
@@ -20,7 +21,14 @@ class CertificateRequestMail extends Mailable
 
     public function build()
     {
-        return $this->view('emails.certificate-request')
+        $email = $this->view('emails.certificate-request')
             ->subject('New Certificate Request - Truck4You');
+
+        // Attach the certificate to the email
+        if ($this->certificateRequest->insurance_certificate) {
+            $email->attach(storage_path('app/public/' . $this->certificateRequest->insurance_certificate));
+        }
+
+        return $email;
     }
 }

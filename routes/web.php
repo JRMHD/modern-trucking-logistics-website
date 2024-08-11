@@ -75,3 +75,4 @@ Route::post('/submit-application', [DriverApplicationController::class, 'store']
 Route::get('/certificate-request', [CertificateRequestController::class, 'index'])->name('certificate-request.index');
 Route::post('/certificate-request', [CertificateRequestController::class, 'store'])->name('certificate-request.store');
 Route::get('/certificate-request/thankyou', [CertificateRequestController::class, 'thankyou'])->name('certificate-request.thankyou');
+Route::post('/certificate-request', [CertificateRequestController::class, 'store'])->name('certificate-request.store');

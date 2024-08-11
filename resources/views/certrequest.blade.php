@@ -72,6 +72,7 @@
         @endif
 
         <form id="certificate-request-form" action="{{ route('certificate-request.store') }}" method="POST"
+            enctype="multipart/form-data"
             style="background-color: white; padding: 30px; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.05);">
             @csrf
             <input type="hidden" id="latitude" name="latitude">
@@ -83,11 +84,50 @@
                     value="{{ old('companyName') }}" />
             </div>
             <div class="form-group" style="margin-bottom: 20px;">
-                <label for="dotNumber" style="display: block; margin-bottom: 5px; color: #333;">DOT Number:</label>
+                <label for="dotNumber" style="display: block; margin-bottom: 5px; color: #333;">
+                    DOT Number:
+                </label>
                 <input type="text" id="dotNumber" name="dotNumber" placeholder="Enter your DOT number" required
                     style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;"
                     value="{{ old('dotNumber') }}" />
             </div>
+
+            <div class="form-group" style="margin-bottom: 20px;">
+                <label for="insuranceCertificate" style="display: block; margin-bottom: 5px; color: #333;">
+                    Upload Certificate of Insurance:
+                </label>
+                <input type="file" id="insuranceCertificate" name="insuranceCertificate" required
+                    style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;"
+                    accept=".pdf, .jpg, .jpeg, .png, .doc, .docx" />
+                <small style="display: block; margin-top: 5px; color: #666;">
+                    Please upload a valid Certificate of Insurance. Accepted formats include PDF, JPG, PNG, DOC, and
+                    DOCX.
+                </small>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 20px; color: #333;">
+                <p>
+                    <strong>Why is this required?</strong> Providing a valid Certificate of Insurance is crucial for
+                    processing your request.
+                    This certificate ensures that your company meets all the necessary insurance requirements and is in
+                    compliance with regulations.
+                </p>
+                <p>
+                    <strong>What should the certificate include?</strong> The uploaded certificate must be current and
+                    should clearly display your
+                    company's name, the type of coverage, policy number, and the coverage period. Please ensure all
+                    details are legible.
+                </p>
+                <p>
+                    <strong>Need help?</strong> If you encounter any issues while uploading your certificate, please
+                    contact our support team at
+                    <a href="mailto:letsroll@truk4you.com" style="color: #007bff;">letsroll@truk4you.com</a> or call
+                    us at (303) 944-7371.
+                </p>
+            </div>
+
+
+
             <div class="form-group" style="margin-bottom: 20px;">
                 <label for="email" style="display: block; margin-bottom: 5px; color: #333;">Email Address:</label>
                 <input type="email" id="email" name="email" placeholder="Enter your email address" required

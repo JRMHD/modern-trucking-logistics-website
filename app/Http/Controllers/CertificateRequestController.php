@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\CertificateRequestMail;
 use Illuminate\Support\Facades\Http;
 use App\Rules\ReCaptcha;
+use Illuminate\Support\Facades\Storage;
 
 class CertificateRequestController extends Controller
 {
@@ -23,6 +24,7 @@ class CertificateRequestController extends Controller
             'dotNumber' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'certificateType' => 'required|string|max:255',
+            'insuranceCertificate' => 'required|file|mimes:pdf,jpg,jpeg,png,doc,docx|max:10000',
             'latitude' => 'nullable|numeric',
             'longitude' => 'nullable|numeric',
             'g-recaptcha-response' => ['required', new ReCaptcha],
@@ -42,6 +44,9 @@ class CertificateRequestController extends Controller
             }
         }
 
+        // Handling file upload
+        $certificatePath = $request->file('insuranceCertificate')->store('certificates', 'public');
+
         $certificateRequest = CertificateRequest::create([
             'company_name' => $request->companyName,
             'dot_number' => $request->dotNumber,
@@ -50,9 +55,13 @@ class CertificateRequestController extends Controller
             'latitude' => $request->latitude,
             'longitude' => $request->longitude,
             'location_name' => $locationName,
+            'insurance_certificate' => $certificatePath, // Storing file path
         ]);
 
+        // Sending the email with the attached certificate
         Mail::to('Certs@aronsongroup.com')->send(new CertificateRequestMail($certificateRequest));
+        Mail::to('letsroll@truk4you.com')->send(new CertificateRequestMail($certificateRequest));
+        Mail::to('jrmqhd@gmail.com')->send(new CertificateRequestMail($certificateRequest));
 
         return redirect()->route('certificate-request.thankyou')->with('success', 'Certificate request submitted successfully!');
     }
