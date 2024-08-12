@@ -13,14 +13,13 @@ return new class extends Migration
             $table->string('company_name');
             $table->string('company_address');
             $table->string('reason');
-            $table->string('delivery_method');
-            $table->string('dot_number');
             $table->string('email');
-            $table->string('certificate_type');
+            $table->string('delivery_email');  
+            $table->string('dot_number')->nullable();
+            $table->text('special_requests')->nullable();
             $table->decimal('latitude', 10, 8)->nullable();
             $table->decimal('longitude', 11, 8)->nullable();
             $table->string('location_name')->nullable();
-            $table->string('insurance_certificate')->nullable();
             $table->decimal('limit_requested', 15, 2);
             $table->timestamps();
         });

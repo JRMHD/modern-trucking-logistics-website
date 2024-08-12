@@ -7,6 +7,8 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\DriverApplicationController;
 use App\Http\Controllers\CertificateRequestController;
+use App\Models\Feedback;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +51,9 @@ Route::get('about-us', function () {
 Route::get('certrequest', function () {
     return view('certrequest');
 });
+Route::get('feedback', function () {
+    return view('feedback');
+});
 
 // Auth Routes
 require __DIR__ . '/auth.php';
@@ -76,3 +81,30 @@ Route::get('/certificate-request', [CertificateRequestController::class, 'index'
 Route::post('/certificate-request', [CertificateRequestController::class, 'store'])->name('certificate-request.store');
 Route::get('/certificate-request/thankyou', [CertificateRequestController::class, 'thankyou'])->name('certificate-request.thankyou');
 Route::post('/certificate-request', [CertificateRequestController::class, 'store'])->name('certificate-request.store');
+
+
+
+
+
+
+Route::get('/feedback', function () {
+    return view('feedback');
+});
+
+Route::post('/feedback', function (Request $request) {
+    $request->validate([
+        'on_time_deliveries' => 'required|integer|min:1|max:100',
+        'customer_satisfaction' => 'required|integer|min:1|max:100',
+    ]);
+
+    Feedback::create($request->all());
+
+    return redirect('/feedback')->with('status', 'Feedback submitted successfully!');
+});
+
+Route::get('/', function () {
+    $ratings = Feedback::avg('on_time_deliveries') ?? 95;
+    $satisfaction = Feedback::avg('customer_satisfaction') ?? 94;
+
+    return view('welcome', compact('ratings', 'satisfaction'));
+});

@@ -20,14 +20,7 @@ class CertificateRequestMail extends Mailable
 
     public function build()
     {
-        $mail = $this->subject('New Certificate Request - Truck4You')
-            ->view('emails.certificate-request'); // Update to match the path of your email template
-
-        // Attach the certificate if it exists
-        if ($this->certificateRequest->insurance_certificate) {
-            $mail->attach(storage_path('app/public/' . $this->certificateRequest->insurance_certificate));
-        }
-
-        return $mail;
+        return $this->subject('New Certificate Request - Truck4You')
+            ->view('emails.certificate-request');
     }
 }

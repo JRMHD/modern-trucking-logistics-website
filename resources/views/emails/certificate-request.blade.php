@@ -69,7 +69,7 @@
 
 <body>
     <div class="container">
-        <h2>New Certificate of Insurance Request - Truck4You</h2>
+        <h2>New Certificate Request - Truck4You</h2>
         <p>A new certificate request has been submitted with the following details:</p>
         <table>
             <tr>
@@ -85,45 +85,40 @@
                 <td>{{ $certificateRequest->reason }}</td>
             </tr>
             <tr>
-                <th>Delivery Method</th>
-                <td>{{ $certificateRequest->delivery_method }}</td>
+                <th>Email</th>
+                <td>{{ $certificateRequest->email }}</td>
             </tr>
             <tr>
-                <th>Certificate Type</th>
-                <td>{{ $certificateRequest->certificate_type }}</td>
+                <th>Delivery Email</th>
+                <td>{{ $certificateRequest->delivery_email }}</td>
             </tr>
             <tr>
                 <th>Limit Requested</th>
                 <td>${{ number_format($certificateRequest->limit_requested, 2) }}</td>
             </tr>
-            <tr>
-                <th>Insurance Certificate</th>
-                <td>
-                    @if ($certificateRequest->insurance_certificate)
-                        <a href="{{ asset('storage/' . $certificateRequest->insurance_certificate) }}"
-                            target="_blank">Download Certificate</a>
-                    @else
-                        No document uploaded
-                    @endif
-                </td>
-            </tr>
-            <tr>
-                <th>Location</th>
-                <td>
-                    @if ($certificateRequest->latitude && $certificateRequest->longitude)
+            @if ($certificateRequest->dot_number)
+                <tr>
+                    <th>D.O.T. Number</th>
+                    <td>{{ $certificateRequest->dot_number }}</td>
+                </tr>
+            @endif
+            @if ($certificateRequest->latitude && $certificateRequest->longitude)
+                <tr>
+                    <th>Location</th>
+                    <td>
                         Latitude: {{ $certificateRequest->latitude }}, Longitude: {{ $certificateRequest->longitude }}
                         <br>
                         <a href="https://www.google.com/maps?q={{ $certificateRequest->latitude }},{{ $certificateRequest->longitude }}"
                             target="_blank" class="map-link">View on Google Maps</a>
-                        @if (isset($locationName))
-                            <br>
-                            Location Name: {{ $locationName }}
-                        @endif
-                    @else
-                        Location not provided
-                    @endif
-                </td>
-            </tr>
+                    </td>
+                </tr>
+            @endif
+            @if ($certificateRequest->special_requests)
+                <tr>
+                    <th>Special Requests</th>
+                    <td>{{ $certificateRequest->special_requests }}</td>
+                </tr>
+            @endif
         </table>
         <div class="footer">
             &copy; {{ date('Y') }} Truck4You. All rights reserved.

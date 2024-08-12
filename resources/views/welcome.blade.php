@@ -352,23 +352,60 @@
                                 needs.
                             </p>
                         </div>
+                        <style>
+                            .progress-bars {
+                                display: flex;
+                                flex-direction: column;
+                            }
+
+                            .progress-item {
+                                margin-bottom: 15px;
+                            }
+
+                            .progress-name {
+                                font-weight: bold;
+                                margin-bottom: 5px;
+                            }
+
+                            .progress-stick {
+                                background-color: #f0f0f0;
+                                border-radius: 5px;
+                                overflow: hidden;
+                                position: relative;
+                                height: 25px;
+                            }
+
+                            .progress-per {
+                                background-color: #4caf50;
+                                height: 100%;
+                                transition: width 0.3s;
+                            }
+
+                            .progress-value {
+                                font-size: 14px;
+                                color: #333;
+                                margin-top: 5px;
+                            }
+                        </style>
                         <div class="progress-bars">
                             <div class="progress-item">
                                 <div class="progress-name">On-Time Deliveries</div>
                                 <div class="progress-stick">
-                                    <div class="progress-per" per="90"></div>
+                                    <div class="progress-per" style="width: {{ $ratings }}%"></div>
                                 </div>
+                                <div class="progress-value">{{ $ratings }}%</div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-name">Customer Satisfaction</div>
+                                <div class="progress-stick">
+                                    <div class="progress-per" style="width: {{ $satisfaction }}%"></div>
+                                </div>
+                                <div class="progress-value">{{ $satisfaction }}%</div>
                             </div>
                             <div class="progress-item">
                                 <div class="progress-name">Nationwide Coverage</div>
                                 <div class="progress-stick">
                                     <div class="progress-per" per="85"></div>
-                                </div>
-                            </div>
-                            <div class="progress-item">
-                                <div class="progress-name">Customer Satisfaction</div>
-                                <div class="progress-stick">
-                                    <div class="progress-per" per="92"></div>
                                 </div>
                             </div>
                         </div>
@@ -378,6 +415,87 @@
         </div>
     </section>
 
+
+
+    {{-- Gallery --}}
+
+    <section
+        style="
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+">
+        <img src="assets\images\Aug_12_2024_20_52_40_1.jpg" alt="Image 1"
+            style="
+        width: calc(100% - 20px);
+        max-width: 400px;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    "
+            onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+
+        <img src="assets\images\Aug_12_2024_20_52_40_2.jpg" alt="Image 2"
+            style="
+        width: calc(100% - 20px);
+        max-width: 400px;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    "
+            onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+
+        <img src="assets\images\Aug_12_2024_20_52_40_3.jpg" alt="Image 3"
+            style="
+        width: calc(100% - 20px);
+        max-width: 400px;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    "
+            onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+
+        <img src="assets\images\Aug_12_2024_20_52_40_4.jpg" alt="Image 4"
+            style="
+        width: calc(100% - 20px);
+        max-width: 400px;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    "
+            onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+
+        <img src="assets\images\Aug_12_2024_20_52_43.jpg" alt="Image 5"
+            style="
+        width: calc(100% - 20px);
+        max-width: 400px;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    "
+            onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+    </section>
+
+    {{-- Gallery --}}
 
     <!-- Service Section -->
     <section class="service2">
@@ -568,7 +686,15 @@
 
     <section class="blog-post2">
 
-    </section> --}}
+{{-- rate --}}
+    @include('feedback')
+
+    {{-- rate --}}
+
+
+
+
+    </section>
 
     @include('footer')
     <!-- Search Window -->

@@ -23,15 +23,14 @@ class CertificateRequestController extends Controller
             'companyName' => 'required|string|max:255',
             'companyAddress' => 'required|string|max:1000',
             'reason' => 'required|string|max:1000',
-            'deliveryMethod' => 'required|string',
-            'certificateType' => 'required|string',
+            'email' => 'required|email',
+            'deliveryEmail' => 'required|email',
             'limitRequested' => 'required|numeric',
             'dotNumber' => 'nullable|string',
-            'insuranceCertificate' => 'required|file|mimes:pdf,jpg,jpeg,png,doc,docx',
-            'email' => 'required|email',
+            'latitude' => 'nullable|numeric',
+            'longitude' => 'nullable|numeric',
             'g-recaptcha-response' => ['required', new ReCaptcha],
         ]);
-
         // Reverse geocoding to get the location name
         $locationName = null;
         if ($request->latitude && $request->longitude) {
@@ -47,23 +46,19 @@ class CertificateRequestController extends Controller
             }
         }
 
-        // Handle file upload
-        $certificatePath = $request->file('insuranceCertificate')->store('certificates', 'public');
-
         // Create a new certificate request record
         $certificateRequest = CertificateRequest::create([
             'company_name' => $request->companyName,
             'company_address' => $request->companyAddress,
             'reason' => $request->reason,
-            'delivery_method' => $request->deliveryMethod,
-            'certificate_type' => $request->certificateType,
-            'limit_requested' => $request->limitRequested,
-            'insurance_certificate' => $certificatePath,
             'email' => $request->email,
+            'delivery_email' => $request->deliveryEmail, // Ensure this is added in your model and migration
+            'limit_requested' => $request->limitRequested,
             'dot_number' => $request->dotNumber,
             'latitude' => $request->latitude,
             'longitude' => $request->longitude,
             'location_name' => $locationName,
+            'special_requests' => $request->input('specialRequests'),
         ]);
 
         // Determine response based on limitRequested
@@ -76,7 +71,7 @@ class CertificateRequestController extends Controller
             // Send direct notification
             $this->sendDirectNotification($certificateRequest);
             return redirect()->route('certificate-request.thankyou')
-                ->with('warning', 'Your request exceeds $150,000. Please contact us directly at letsroll@truk4you.com or (303) 944-7371.');
+                ->with('warning', 'Your request exceeds $100,000. Please contact us directly at letsroll@truk4you.com or (303) 944-7371.');
         }
 
         // Send request for approval

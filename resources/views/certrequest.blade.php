@@ -120,82 +120,28 @@
                         </small>
                     </div>
 
-                    <!-- Delivery Method -->
+                    <!-- DOT/MC Number -->
                     <div class="form-group" style="margin-bottom: 20px;">
-                        <label for="deliveryMethod" style="display: block; margin-bottom: 5px; color: #333;">Delivery
-                            Method:</label>
-                        <select id="deliveryMethod" name="deliveryMethod" required
-                            style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; background-color: white; box-sizing: border-box;">
-                            <option value="">Select how you would like to receive the certificate</option>
-                            <option value="email" {{ old('deliveryMethod') == 'email' ? 'selected' : '' }}>Email
-                            </option>
-                            <option value="mail" {{ old('deliveryMethod') == 'mail' ? 'selected' : '' }}>Postal Mail
-                            </option>
-                            <option value="pickup" {{ old('deliveryMethod') == 'pickup' ? 'selected' : '' }}>In-Person
-                                Pickup</option>
-                        </select>
-                        <small style="display: block; margin-top: 5px; color: #666;">
-                            Choose the preferred method for receiving the certificate.
-                        </small>
-                    </div>
-                    <!-- DOT Number -->
-                    <div class="form-group" style="margin-bottom: 20px;">
-                        <label for="dotNumber" style="display: block; margin-bottom: 5px; color: #333;">DOT
+                        <label for="dotNumber" style="display: block; margin-bottom: 5px; color: #333;">DOT/MC
                             Number:</label>
-                        <input type="text" id="dotNumber" name="dotNumber" placeholder="Enter your DOT number"
+                        <input type="text" id="dotNumber" name="dotNumber" placeholder="Enter your DOT/MC number"
                             style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;"
                             value="{{ old('dotNumber') }}" />
                         <small style="display: block; margin-top: 5px; color: #666;">
-                            Enter the DOT number for your company.
+                            Enter the DOT/MC number for your company.
                         </small>
                     </div>
 
-
-                    <!-- Certificate Type -->
+                    <!-- Email for Delivery -->
                     <div class="form-group" style="margin-bottom: 20px;">
-                        <label for="certificateType"
-                            style="display: block; margin-bottom: 5px; color: #333;">Certificate Type:</label>
-                        <select id="certificateType" name="certificateType" required
-                            style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; background-color: white; box-sizing: border-box;">
-                            <option value="">Select certificate type</option>
-                            <option value="auto" {{ old('certificateType') == 'auto' ? 'selected' : '' }}>Auto
-                                Liability</option>
-                            <option value="cargo" {{ old('certificateType') == 'cargo' ? 'selected' : '' }}>Cargo
-                                Insurance</option>
-                            <option value="general" {{ old('certificateType') == 'general' ? 'selected' : '' }}>
-                                General Liability</option>
-                            <option value="workers" {{ old('certificateType') == 'workers' ? 'selected' : '' }}>
-                                Workers' Compensation</option>
-                        </select>
-                        <small style="display: block; margin-top: 5px; color: #666;">
-                            Choose the type of insurance certificate you are requesting. This helps us process your
-                            request more accurately.
-                        </small>
-                    </div>
-
-                    <!-- Limit Requested -->
-                    <div class="form-group" style="margin-bottom: 20px;">
-                        <label for="limitRequested" style="display: block; margin-bottom: 5px; color: #333;">Limit
-                            Requested:</label>
-                        <input type="number" id="limitRequested" name="limitRequested"
-                            placeholder="Enter the limit requested" required
+                        <label for="deliveryEmail" style="display: block; margin-bottom: 5px; color: #333;">Email for
+                            Delivery:</label>
+                        <input type="email" id="deliveryEmail" name="deliveryEmail"
+                            placeholder="Enter the email address for delivery" required
                             style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;"
-                            value="{{ old('limitRequested') }}" />
+                            value="{{ old('deliveryEmail') }}" />
                         <small style="display: block; margin-top: 5px; color: #666;">
-                            Specify the amount of coverage or limit you are requesting. This should reflect the amount
-                            of insurance coverage you need.
-                        </small>
-                    </div>
-
-                    <!-- Insurance Certificate -->
-                    <div class="form-group" style="margin-bottom: 20px;">
-                        <label for="insuranceCertificate"
-                            style="display: block; margin-bottom: 5px; color: #333;">Insurance Certificate:</label>
-                        <input type="file" id="insuranceCertificate" name="insuranceCertificate" required
-                            style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;" />
-                        <small style="display: block; margin-top: 5px; color: #666;">
-                            Upload the insurance certificate document. Ensure the file is in an acceptable format (e.g.,
-                            PDF, JPEG).
+                            Provide the email address where the certificate should be sent.
                         </small>
                     </div>
 
@@ -208,6 +154,30 @@
                             value="{{ old('email') }}" />
                         <small style="display: block; margin-top: 5px; color: #666;">
                             Enter your email address for communication purposes.
+                        </small>
+                    </div>
+
+                    <!-- Limit Requested -->
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="limitRequested" style="display: block; margin-bottom: 5px; color: #333;">Limit
+                            Requested:</label>
+                        <input type="number" id="limitRequested" name="limitRequested"
+                            placeholder="Enter the limit requested" required
+                            style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;"
+                            value="{{ old('limitRequested') }}" />
+                        <small style="display: block; margin-top: 5px; color: #666;">
+                            Enter the requested limit for the insurance certificate.
+                        </small>
+                    </div>
+
+                    <!-- Special Instructions/Requests -->
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="specialRequests" style="display: block; margin-bottom: 5px; color: #333;">Special
+                            Instructions/Requests:</label>
+                        <textarea id="specialRequests" name="specialRequests" placeholder="Enter any special instructions or requests here"
+                            style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; height: 100px;">{{ old('specialRequests') }}</textarea>
+                        <small style="display: block; margin-top: 5px; color: #666;">
+                            If you have any special instructions or additional requests, please include them here.
                         </small>
                     </div>
 
@@ -227,66 +197,49 @@
                         </button>
                     </div>
                 </form>
+
+                <div id="location-status" class="location-status"
+                    style="margin-top: 20px; text-align: center; color: #333;">
+                </div>
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const locationStatus = document.getElementById('location-status');
+                        const latitudeInput = document.getElementById('latitude');
+                        const longitudeInput = document.getElementById('longitude');
+
+                        if ("geolocation" in navigator) {
+                            locationStatus.textContent = "Detecting your location...";
+                            navigator.geolocation.getCurrentPosition(function(position) {
+                                latitudeInput.value = position.coords.latitude;
+                                longitudeInput.value = position.coords.longitude;
+                                locationStatus.textContent = "Location detected successfully!";
+                            }, function(error) {
+                                console.error("Error detecting location:", error);
+                                locationStatus.textContent =
+                                    "Unable to detect location. Please ensure location services are enabled.";
+                            });
+                        } else {
+                            locationStatus.textContent = "Geolocation is not supported by your browser.";
+                        }
+                    });
+                </script>
+
             </div>
-        </div>
 
+            <!-- Back to top-->
 
-        <div id="location-status" class="location-status" style="margin-top: 20px; text-align: center; color: #333;">
-        </div>
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const locationStatus = document.getElementById('location-status');
-            const latitudeInput = document.getElementById('latitude');
-            const longitudeInput = document.getElementById('longitude');
-
-            if ("geolocation" in navigator) {
-                locationStatus.textContent = "Detecting your location...";
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    latitudeInput.value = position.coords.latitude;
-                    longitudeInput.value = position.coords.longitude;
-                    locationStatus.textContent = "Location detected successfully!";
-                }, function(error) {
-                    console.error("Error detecting location:", error);
-                    locationStatus.textContent =
-                        "Unable to detect location. Please ensure location services are enabled.";
-                });
-            } else {
-                locationStatus.textContent = "Geolocation is not supported by your browser.";
-            }
-        });
-    </script> <!-- Footer -->
-
-    @include('footer')
-    <!-- Search Window -->
-
-    <div class="search-window">
-        <button class="search-close"><i class="fa-solid fa-xmark"></i></button>
-        <form method="post" action="#">
-            <div class="form-group">
-                <input type="search" name="search-field" value="" placeholder="Search Here"
-                    required="" />
-                <button type="submit">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
+            <div class="prgoress_scrollup">
+                <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                    <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+                </svg>
             </div>
-        </form>
-    </div>
 
-    <!-- Back to top-->
-
-    <div class="prgoress_scrollup">
-        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
-        </svg>
-    </div>
-
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="assets/js/jquery.marquee.min.js"></script>
-    <script src="assets/js/venobox.min.js"></script>
-    <script src="assets/js/script.js"></script>
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/owl.carousel.min.js"></script>
+            <script src="assets/js/jquery.marquee.min.js"></script>
+            <script src="assets/js/venobox.min.js"></script>
+            <script src="assets/js/script.js"></script>
 </body>
 
 </html>
