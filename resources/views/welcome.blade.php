@@ -421,32 +421,32 @@
 
     <section
         style="
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
 ">
-        <img src="assets\images\Aug_12_2024_20_52_40_1.jpg" alt="Image 1"
-            style="
-        width: calc(100% - 20px);
-        max-width: 400px;
-        height: auto;
-        aspect-ratio: 1 / 1;
-        object-fit: cover;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        transition: transform 0.3s ease;
-    "
-            onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="
+        display: contents;
+        grid-column: span 2;
+    ">
+            <img src="assets\images\Aug_12_2024_20_52_40_1.jpg" alt="Image 1"
+                style="
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        "
+                onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+        </div>
 
         <img src="assets\images\Aug_12_2024_20_52_40_2.jpg" alt="Image 2"
             style="
-        width: calc(100% - 20px);
-        max-width: 400px;
-        height: auto;
+        width: 100%;
         aspect-ratio: 1 / 1;
         object-fit: cover;
         border-radius: 10px;
@@ -457,9 +457,7 @@
 
         <img src="assets\images\Aug_12_2024_20_52_40_3.jpg" alt="Image 3"
             style="
-        width: calc(100% - 20px);
-        max-width: 400px;
-        height: auto;
+        width: 100%;
         aspect-ratio: 1 / 1;
         object-fit: cover;
         border-radius: 10px;
@@ -470,9 +468,7 @@
 
         <img src="assets\images\Aug_12_2024_20_52_40_4.jpg" alt="Image 4"
             style="
-        width: calc(100% - 20px);
-        max-width: 400px;
-        height: auto;
+        width: 100%;
         aspect-ratio: 1 / 1;
         object-fit: cover;
         border-radius: 10px;
@@ -481,11 +477,9 @@
     "
             onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
 
-        <img src="assets\images\Aug_12_2024_20_52_43.jpg" alt="Image 5"
+        <img src="assets\images\Aug43.jpg" alt="Image 5"
             style="
-        width: calc(100% - 20px);
-        max-width: 400px;
-        height: auto;
+        width: 100%;
         aspect-ratio: 1 / 1;
         object-fit: cover;
         border-radius: 10px;
