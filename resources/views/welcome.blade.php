@@ -45,7 +45,7 @@
                         <div class="hero-text">
                             <h4 class="subtitle">Quick Transport and Logistics Solutions</h4>
                             <h2 class="title">
-                                <span class="typing-effect">Streamlining Limit</span>
+                                <span class="typing-effect">Streamlining</span>
                                 <span class="fade-in-effect"><strong>Shipping Logistics</strong></span>
                             </h2>
                         </div>
@@ -419,77 +419,126 @@
 
     {{-- Gallery --}}
 
-    <section
-        style="
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-">
-        <div style="
-        display: contents;
-        grid-column: span 2;
-    ">
-            <img src="assets\images\Aug_12_2024_20_52_40_1.jpg" alt="Image 1"
-                style="
+    <section class="gallery">
+        <a href="/truckbook" class="gallery-item large">
+            <img src="assets/images/Aug_12_2024_20_52_40_1.jpg" alt="Semi-truck">
+            <div class="overlay">
+                <span class="speed-limit">100</span>
+                <span class="label">Hotshot</span>
+            </div>
+        </a>
+        <a href="/truckbook" class="gallery-item">
+            <img src="assets/images/Aug_12_2024_20_52_40_2.jpg" alt="Dry Van">
+            <div class="overlay">
+                <span class="label">Hotshot</span>
+            </div>
+        </a>
+        <a href="/truckbook" class="gallery-item">
+            <img src="assets/images/Aug_12_2024_20_52_40_3.jpg" alt="Reefer">
+            <div class="overlay">
+                <span class="label">Dry Van</span>
+            </div>
+        </a>
+        <a href="/truckbook" class="gallery-item">
+            <img src="assets/images/Aug_12_2024_20_52_40_4.jpg" alt="Flatbed">
+            <div class="overlay">
+                <span class="label">Power Only</span>
+            </div>
+        </a>
+        <a href="/truckbook" class="gallery-item">
+            <img src="assets/images/Aug43.jpg" alt="Road Train">
+            <div class="overlay">
+                <span class="label">Refer</span>
+            </div>
+        </a>
+    </section>
+
+    <style>
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+            padding: 10px;
+            background-color: #000;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        "
-                onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
-        </div>
+            display: block;
+        }
 
-        <img src="assets\images\Aug_12_2024_20_52_40_2.jpg" alt="Image 2"
-            style="
-        width: 100%;
-        aspect-ratio: 1 / 1;
-        object-fit: cover;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        transition: transform 0.3s ease;
-    "
-            onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        .large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
 
-        <img src="assets\images\Aug_12_2024_20_52_40_3.jpg" alt="Image 3"
-            style="
-        width: 100%;
-        aspect-ratio: 1 / 1;
-        object-fit: cover;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        transition: transform 0.3s ease;
-    "
-            onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        .overlay {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background-color: rgba(255, 255, 0, 0.8);
+            padding: 5px 10px;
+            color: #000;
+            font-weight: bold;
+        }
 
-        <img src="assets\images\Aug_12_2024_20_52_40_4.jpg" alt="Image 4"
-            style="
-        width: 100%;
-        aspect-ratio: 1 / 1;
-        object-fit: cover;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        transition: transform 0.3s ease;
-    "
-            onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        .speed-limit {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 50%;
+            border: 2px solid #f00;
+            color: #000;
+            font-size: 18px;
+            margin-right: 10px;
+        }
 
-        <img src="assets\images\Aug43.jpg" alt="Image 5"
-            style="
-        width: 100%;
-        aspect-ratio: 1 / 1;
-        object-fit: cover;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        transition: transform 0.3s ease;
-    "
-            onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-    </section>
+        .label {
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .large {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+        }
+    </style>
 
     {{-- Gallery --}}
+
+
+    <div style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4;">
+        <section
+            style="background-color: #ffffff; padding: 40px; margin: 20px auto; max-width: 800px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
+            <h2 style="color: #e74c3c; font-size: 28px; margin-bottom: 20px; font-weight: 700;">Enquire a Truck</h2>
+            <p style="font-size: 16px; color: #333333; line-height: 1.6; margin-bottom: 20px;">
+                Are you interested in finding out more about our truck services? Whether you have specific requirements
+                or just want to know more about our fleet, we're here to help. Our team is ready to assist you with any
+                questions and provide detailed information about our trucks and services.
+            </p>
+            <a href="/truckbook"
+                style="display: inline-block; padding: 15px 30px; font-size: 18px; color: #ffffff; background-color: #e74c3c; border: none; border-radius: 6px; text-decoration: none; cursor: pointer; transition: background-color 0.3s, transform 0.3s;">
+                Get in Touch
+            </a>
+        </section>
+    </div>
+
 
     <!-- Service Section -->
     <section class="service2">
@@ -499,12 +548,12 @@
                     <div class="section-title left">
                         <h4 class="subtitle">Our Services</h4>
                         <h2 class="title">
-                            Excellence in Logistics and Transportation
+                            Excellence in Trucking and Transportation
                         </h2>
                         <p class="description">
-                            With a decade of industry experience, we offer a range of logistics and transportation
-                            services designed to meet your needs efficiently and reliably. Discover how we can support
-                            your operations with our tailored solutions.
+                            With years of experience in the trucking industry, we provide a range of services designed
+                            to meet your transportation needs with precision and reliability. Explore our solutions
+                            tailored to ensure your freight is handled efficiently.
                         </p>
                     </div>
                     <div class="service-btn">
@@ -512,63 +561,65 @@
                                 class="fa-solid fa-angle-right"></i></a>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-3">
                     <div class="service-box">
-                        <h3 class="title">Warehousing</h3>
-                        <div class="icon">
-                            <i class="fa-solid fa-box"></i>
-                        </div>
-                        <div class="content">
-                            <p class="description">
-                                Our secure and strategically located warehouses ensure that your inventory is managed
-                                efficiently and safely. Benefit from our advanced warehousing solutions tailored to your
-                                needs.
-                            </p>
-                            <a class="button" href="contact-us">Learn More<i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-box">
-                        <h3 class="title">Courier Services</h3>
+                        <h3 class="title">Dedicated Trucking</h3>
                         <div class="icon">
                             <i class="fa-solid fa-truck"></i>
                         </div>
                         <div class="content">
                             <p class="description">
-                                Our reliable courier services ensure timely and secure delivery of your packages. From
-                                local to nationwide deliveries, we handle it all with precision.
+                                Our dedicated trucking services ensure that you have a truck and driver exclusively for
+                                your shipments. Enjoy reliable, punctual deliveries tailored to your schedule and
+                                requirements.
                             </p>
                             <a class="button" href="contact-us">Learn More<i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-3">
                     <div class="service-box">
-                        <h3 class="title">Port Logistics</h3>
+                        <h3 class="title">Long Haul Trucking</h3>
                         <div class="icon">
-                            <i class="fa-solid fa-ship"></i>
+                            <i class="fa-solid fa-road"></i>
                         </div>
                         <div class="content">
                             <p class="description">
-                                Our port logistics services streamline the handling of goods through ports, ensuring
-                                efficient processing and minimal delays. Trust us to manage your port operations
-                                seamlessly.
+                                Our long haul trucking services are designed for transporting goods over long distances
+                                efficiently. We manage every aspect of the journey to ensure timely delivery from coast
+                                to coast.
                             </p>
                             <a class="button" href="contact-us">Learn More<i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-3">
                     <div class="service-box">
-                        <h3 class="title">Freight Forwarding</h3>
+                        <h3 class="title">Refrigerated Transport</h3>
                         <div class="icon">
-                            <i class="fa-solid fa-plane"></i>
+                            <i class="fa-solid fa-snowflake"></i>
                         </div>
                         <div class="content">
                             <p class="description">
-                                Our freight forwarding services cover all aspects of transportation, from booking to
-                                delivery. We ensure your goods reach their destination safely and on time.
+                                Our refrigerated transport services keep your temperature-sensitive goods in optimal
+                                condition. Whether it's perishable food items or pharmaceuticals, we ensure your
+                                products are transported safely and efficiently.
+                            </p>
+                            <a class="button" href="contact-us">Learn More<i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-box">
+                        <h3 class="title">Local Delivery</h3>
+                        <div class="icon">
+                            <i class="fa-solid fa-box"></i>
+                        </div>
+                        <div class="content">
+                            <p class="description">
+                                Our local delivery services provide efficient and timely delivery within your city or
+                                region. Whether it's for business or personal needs, we ensure your shipments reach
+                                their destination quickly and safely.
                             </p>
                             <a class="button" href="contact-us">Learn More<i class="fa-solid fa-arrow-right"></i></a>
                         </div>
@@ -577,6 +628,7 @@
             </div>
         </div>
     </section>
+
 
     <!-- Counter -->
 

@@ -9,6 +9,7 @@ use App\Http\Controllers\DriverApplicationController;
 use App\Http\Controllers\CertificateRequestController;
 use App\Models\Feedback;
 use Illuminate\Http\Request;
+use App\Http\Controllers\InquiryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +55,11 @@ Route::get('certrequest', function () {
 Route::get('feedback', function () {
     return view('feedback');
 });
+Route::get('truckbook', function () {
+    return view('truckbook');
+});
+
+
 
 // Auth Routes
 require __DIR__ . '/auth.php';
@@ -81,6 +87,9 @@ Route::get('/certificate-request', [CertificateRequestController::class, 'index'
 Route::post('/certificate-request', [CertificateRequestController::class, 'store'])->name('certificate-request.store');
 Route::get('/certificate-request/thankyou', [CertificateRequestController::class, 'thankyou'])->name('certificate-request.thankyou');
 Route::post('/certificate-request', [CertificateRequestController::class, 'store'])->name('certificate-request.store');
+
+
+Route::post('/submit-inquiry', [InquiryController::class, 'store'])->name('inquiry.store');
 
 
 
